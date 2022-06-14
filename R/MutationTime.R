@@ -34,7 +34,7 @@ getAltCount <- function(vcf){
 	if("t_alt_count" %in% colnames(info(vcf))){ ## consensus data, snv and indel
 		return(info(vcf)$t_alt_count)
 	}
-	if("AD" %in% names(geno(vcf))){ ## Mutect2
+	if("DPA" %in% names(geno(vcf))){ ## Mutect2
 		return(geno(vcf)$DPA[,1])
 	}else{ ## older formats
 		if("FAZ" %in% rownames(geno(header(vcf)))){ ## ie subs
