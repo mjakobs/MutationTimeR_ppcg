@@ -35,7 +35,7 @@ getAltCount <- function(vcf){
 		return(info(vcf)$t_alt_count)
 	}
 	if("AD" %in% names(geno(vcf))){ ## Mutect2
-		return(geno(vcf)$AD[,1,2])
+		return(geno(vcf)$DPA[,1])
 	}else{ ## older formats
 		if("FAZ" %in% rownames(geno(header(vcf)))){ ## ie subs
 			c <- getTumorCounts(vcf)
